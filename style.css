@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Fueltrip</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Productivity Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<div id="bgVideoWrap">
+  <video id="bgVideo" autoplay muted loop playsinline></video>
+</div>
+
+<!-- SIDEBAR -->  
+<div class="app">
+    <button id="sidebarToggle" class="sidebar-toggle">❯</button>
+
+    <div class="sidebar-wrap">
+      <div class="sidebar">
+        
+      <button data-open="timer" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1563.png" alt="timer">
+    </button>
+        
+    <button data-open="stopwatch" class="menu-btn">
+       <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1583.png" alt="stopwatch">
+    </button>
+        
+    <button data-open="alarm" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1585.png" alt="alarm">
+    </button>
+        
+    <button data-open="checklist" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1587.png" alt="checklist">
+    </button>
+        
+    <button data-open="flashcard" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1589.png" alt="flashcard">
+    </button>
+        
+    <button data-open="schedule" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1590.png" alt="schedule">
+    </button>
+        
+    <button data-open="calculator" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1595.png" alt="calculator">
+    </button>
+        
+    <button data-open="notebook" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1593.png" alt="notebook">
+    </button>
+        
+    <button data-open="background" class="menu-btn">
+      <img src="https://raw.githubusercontent.com/TheRePin/icon_pj/refs/heads/main/IMG_1594.png" alt="background">
+    </button>
+</div>
+
+<div id="overlay">
+  <div id="modalContainer"></div>
+</div>
+      
+<!-- TIMER -->
+<div class="modal hidden" id="timer">
+  <h2>Timer</h2>
+  <div class="big" id="timerDisplay">00:00</div>
+
+  <input id="tMin" placeholder="Minutes">
+  <input id="tSec" placeholder="Seconds">
+
+  <div class="row">
+    <button id="tStart">Start</button>
+    <button id="tStop">Stop</button>
+    <button id="tReset">Reset</button>
+  </div>
+
+  <hr>
+
+  <h3>Pomodoro</h3>
+  <div class="big" id="pomoDisplay">00:00</div>
+  <div id="pomoLabel"></div>
+
+  <div class="row">
+    <button id="pomoStart">Start</button>
+    <button id="pomoStop">Stop</button>
+    <button id="pomoReset">Reset</button>
+  </div>
+</div>
+
+<!-- STOPWATCH -->
+<div class="modal hidden" id="stopwatch">
+  <h2>Stopwatch</h2>
+  <div class="big" id="swDisplay">00:00</div>
+  <div class="row">
+    <button id="swStart">Start</button>
+    <button id="swStop">Stop</button>
+    <button id="swReset">Reset</button>
+  </div>
+</div>
+
+<!-- ALARM -->
+<div class="modal hidden" id="alarm">
+  <h2>Alarm</h2>
+  <input id="aName" placeholder="Title">
+  <input type="date" id="aDate">
+  <input type="time" id="aTime">
+  <button id="aAdd">Add Alarm</button>
+  <ul id="aList"></ul>
+</div>
+
+<!-- CHECKLIST -->
+<div class="modal hidden" id="checklist">
+  <h2>Checklist</h2>
+  <input id="cInput" placeholder="Task">
+  <button id="cAdd">Add</button>
+  <ul id="cList"></ul>
+</div>
+
+<!-- FLASHCARD -->
+<div class="modal hidden" id="flashcard">
+  <h2>Flashcards</h2>
+
+  <!-- CATEGORY -->
+  <div id="fcCategories">
+    <button id="fcNewCat">+ New Category</button>
+    <div id="fcCatList"></div>
+  </div>
+
+  <!-- PREVIEW -->
+  <div id="fcPreview" class="hidden">
+    <div class="fc-preview-wrap">
+      <div id="fcPreviewCard" class="fc-preview-card">
+        <div class="fc-front"></div>
+        <div class="fc-back"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="fcShuffle">Shuffle</button>
+      <button id="fcNext">Next</button>
+    </div>
+
+    <div class="row">
+      <button id="fcEdit">Edit</button>
+      <button id="fcBack">Back</button>
+    </div>
+  </div>
+
+  <!-- EDITOR -->
+  <div id="fcEditor" class="hidden">
+    <input id="fcCatName" placeholder="Category name">
+
+    <div id="fcCards" class="fc-editor"></div>
+
+    <button id="fcAddCard">+ Add Card</button>
+
+    <div class="row">
+      <button id="fcSave">Save</button>
+      <button id="fcCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<div class="modal hidden" id="schedule">
+  <h2>Schedule</h2>
+  <input id="sDay" placeholder="Day">
+  <input id="sTime" placeholder="Time">
+  <input id="sTitle" placeholder="Title">
+  <button id="sAdd">Add</button>
+  <ul id="sList"></ul>
+</div>
+
+<!-- CALCULATOR -->
+<div class="modal hidden" id="calculator">
+  <h2>Calculator</h2>
+  <input id="calcDisplay" readonly>
+  <div class="calc" id="calcBtns"></div>
+</div>
+
+<!-- NOTEBOOK -->
+<div class="modal hidden" id="notebook">
+  <h2>Notebook</h2>
+  <textarea id="note"></textarea>
+</div>
+
+<!-- BACKGROUND SETTINGS -->
+<div class="modal hidden" id="background">
+  <h2>Background</h2>
+
+  <h3>Weather</h3>
+  <div class="row" id="weatherBtns">
+    <button data-weather="clear">Clear</button>
+    <button data-weather="rain">Rain</button>
+  </div>
+
+  <h3>Time</h3>
+  <div class="row" id="timeBtns">
+    <button data-time="day">Day</button>
+    <button data-time="evening">Evening</button>
+    <button data-time="night">Night</button>
+  </div>
+</div>
+      
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<button id="soundToggle" class="sound-btn">
+  <span id="soundIcon" class="icon-slot"></span>
+</button>
+
+<div id="miniZone"></div>
+      
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
